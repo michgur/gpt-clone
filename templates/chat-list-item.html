@@ -1,0 +1,14 @@
+<button
+    class="chat-list-item p-2 bg-slate-500 rounded-sm hover:bg-slate-400 transition-colors aria-selected:bg-slate-400 text-ellipsis whitespace-nowrap overflow-hidden"
+    hx-get="/chat/{{chat.id}}" hx-target="#main" id="chat-{{chat.id}}" :aria-selected="selectedChat === {{chat.id}}" {%
+    if is_selected %} hx-trigger="load,click" aria-selected="true" x-init="selectedChat={{chat.id}}" {% else %}
+    hx-trigger="click" {% endif %} @click="selectedChat={{chat.id}}" {% if oob is defined and oob %}
+    hx-swap-oob="beforeend:#chat-list" {% endif %}>
+    {% if chat.name is not none %}
+    {{chat.name}}
+    {% else %}
+    Untitled Chat
+    <div class="hidden" hx-trigger="load" hx-get="/chat/{{chat.id}}/rename" hx-swap="innerHTML"
+        hx-target="#chat-{{chat.id}}"></div>
+    {% endif %}
+</button>

@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: cadetblue;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+
+}
+
+#side-bar {
+    background: wheat;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    row-gap: 10px;
+}
+
+#chat-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.chat-list-item {
+    background-color: aliceblue;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.chat-list-item:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+}
+
+#new-chat-button {
+    padding: 10px;
+    border: none;
+    background: burlywood;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 3px;
+}
+
+#new-chat-button:hover {
+    background-color: blanchedalmond;
+    cursor: pointer;
+}
+
+#new-chat-dots {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#new-chat-dots.htmx-request {
+    opacity: 1;
+}

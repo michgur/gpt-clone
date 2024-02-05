@@ -1,0 +1,25 @@
+<title>Hello World!</title>
+
+<div id="message-list" class="flex-1 flex flex-col items-stretch justify-evenly text-center">
+    <h1 class="text-6xl font-black text-slate-500">Welcome to this chat GPT clone</h1>
+    <h2 class="text-4xl font-black text-slate-600">Here's some welcome screen content</h2>
+    <div class="grid grid-rows-3 md:grid-cols-3 w-full p-3 gap-3">
+        <form hx-post="/chats/new" hx-trigger="submit" hx-target="#chat-list" hx-swap="afterbegin">
+            <input name="message" type="submit"
+                class="bg-slate-300 hover:bg-slate-400 transition-colors py-5 px-3 rounded-sm cursor-pointer w-full"
+                value="Say &quot;Poop&quot;">
+        </form>
+        <form hx-post="/chats/new" hx-trigger="submit" hx-target="#chat-list" hx-swap="afterbegin">
+            <input name="message" type="submit"
+                class="bg-slate-300 hover:bg-slate-400 transition-colors py-5 px-3 rounded-sm cursor-pointer w-full"
+                value="Write a haiku about poo">
+        </form>
+        <form hx-post="/chats/new" hx-trigger="submit" hx-target="#chat-list" hx-swap="afterbegin">
+            <input name="message" type="submit"
+                class="bg-slate-300 hover:bg-slate-400 transition-colors py-5 px-3 rounded-sm cursor-pointer w-full"
+                value="List the 10 best emojis">
+        </form>
+    </div>
+</div>
+
+{% include 'message-input.html' %}

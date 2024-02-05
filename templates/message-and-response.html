@@ -1,0 +1,6 @@
+{% with message=chat.messages[-2] %}
+{% include 'message.html' %}
+{% endwith %}
+{% with message=chat.messages[-1] %}
+{% include 'message.html' %}
+{% endwith %}

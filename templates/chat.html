@@ -1,0 +1,15 @@
+{% if chat.name is not none %}
+<title>{{ chat.name }}</title>
+{% endif %}
+
+<div id="message-list" class="flex-1 flex flex-col content-stretch overflow-auto max-w-full">
+    {% for msg in chat.messages %}
+    {% with message=msg %}
+    {% include 'message.html' %}
+    {% endwith %}
+    {% endfor %}
+</div>
+
+{% with chat_id = chat.id %}
+{% include 'message-input.html' %}
+{% endwith %}

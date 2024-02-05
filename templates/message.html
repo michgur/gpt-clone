@@ -1,0 +1,7 @@
+<div class="data-[role=assistant]:bg-slate-100 min-w-64 p-3" data-role="{{message.role}}">
+    <p class="whitespace-break-spaces inline">{{message.content}}</p>
+    {% if not message.finished %}
+    <div id="sse-listener" hx-ext="sse" sse-connect="/chat/{{chat.id}}/sse" sse-swap="content, done"
+        hx-target="previous" hx-swap="beforeend" class="bg-slate-400 animate-[pulse_.4s_infinite] inline">&nbsp;</div>
+    {% endif %}
+</div>

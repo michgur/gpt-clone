@@ -1,0 +1,9 @@
+<form class="m-3 p-0 min-h-0 leading-0" hx-trigger="keyup[keyCode==13&&!shiftKey],submit" {% if chat_id is defined %}
+    hx-post="/chat/{{chat.id}}" hx-target="#message-list" hx-swap="beforeend scroll:bottom" {% else %}
+    hx-post="/chats/new" hx-target="#chat-list" hx-swap="afterbegin" {% endif %}
+    hx-on::before-send="this.reset();this.children[0].style.height='auto'">
+    <textarea name="message" rows="1" id="message-input" type="text" placeholder="Type a message..."
+        class="w-full p-2 rounded-sm bg-slate-100 placeholder:text-slate-400 resize-none max-h-20 leading-normal outline-none disabled:bg-slate-800"
+        oninput="this.style.height='auto';this.style.height=`${this.scrollHeight}px`"
+        onkeydown="if(event.key === 'Enter' && !event.shiftKey) event.preventDefault()"></textarea>
+</form>

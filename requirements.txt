@@ -1,0 +1,9 @@
+fastapi
+jinja2
+uvicorn[standard]
+arel
+python-multipart
+sse-starlette
+aiofiles
+openai
+htmlmin

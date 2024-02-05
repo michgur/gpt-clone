@@ -1,0 +1,11 @@
+<div id="chat-list" {% if chats is not defined %} hx-swap="outerHTML"
+    hx-get="/chats/all{% if selected is defined and selected is not none %}?select={{selected}}{% endif %}"
+    hx-trigger="load" {% endif %} class="flex-1 p-3 -mx-3 gap-1 flex flex-col content-stretch overflow-y-auto">
+    {% if chats is defined %}
+    {% for chat in chats %}
+    {% with is_selected = selected == chat.id, chat=chat %}
+    {% include 'chat-list-item.html' %}
+    {% endwith %}
+    {% endfor %}
+    {% endif %}
+</div>
