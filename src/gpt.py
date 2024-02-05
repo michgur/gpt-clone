@@ -1,7 +1,8 @@
 from model import Chat
 import openai
+import os
 
-API_KEY = "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"
+API_KEY = os.environ["OPENAI_API_KEY"]
 
 openai = openai.AsyncClient(api_key=API_KEY)
 

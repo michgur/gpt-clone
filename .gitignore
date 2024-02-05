@@ -4,3 +4,4 @@
 /chat_db
 /chatapp_venv
 /templates-min
+.env
