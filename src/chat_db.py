@@ -6,6 +6,10 @@ import aiofiles, aiofiles.os
 
 path = "./chat_db"
 
+# create directory if doesn't exist
+if not os.path.exists(path):
+    os.makedirs(path)
+
 
 async def read(chat_id: str) -> Chat:
     async with aiofiles.open(f"{path}/{chat_id}.json", "r") as f:
