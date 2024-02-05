@@ -1,3 +1,9 @@
+import os
+# if no env variables - use dotenv
+if "DEBUG" not in os.environ:
+    import dotenv
+    dotenv.load_dotenv()
+
 import asyncio
 from collections import defaultdict
 from typing import Annotated, Optional
@@ -10,17 +16,12 @@ from sse_starlette.sse import EventSourceResponse, ServerSentEvent
 from model import Chat, Message
 import chat_db
 import gpt
-import os
 
 # TODO: replace chat_db with actual database
 # TODO: replace buffer with actual message queue
 # TODO: connect to actual assistant
 # TODO: host on actual server
 
-# if no env variables - use dotenv
-if "DEBUG" not in os.environ:
-    import dotenv
-    dotenv.load_dotenv()
 
 DEBUG = os.environ.get("DEBUG", "false").lower() == "true"
 
